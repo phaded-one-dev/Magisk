@@ -38,6 +38,11 @@ android {
             isShrinkResources = true
             proguardFiles("proguard-rules.pro")
         }
+        getByName("debug") {
+            isRenderscriptDebuggable = true
+            signingConfig = signingConfigs.getByName("debug")
+            isMinifyEnabled = true
+        }
     }
 
     buildFeatures {
@@ -58,6 +63,12 @@ android {
             excludes += "/*.json"
         }
     }
+    compileOptions {
+        sourceCompatibility = VERSION_1_6
+        targetCompatibility = VERSION_1_8
+    }
+    compileSdk = 34
+    buildToolsVersion = "34.0.0"
 }
 
 setupApp()
